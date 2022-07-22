@@ -5,7 +5,7 @@ import { NgControl } from '@angular/forms';
   selector: '[appSsnMask]',
   host: {
     '(ngModelChange)': 'onInputChange($event)',
-    '(keydown.backspace)': 'onInputChange($event.target.value, true)'
+    '(keydown.backspace)': 'onInputChange($event.target.value)'
   }
 })
 export class SsnMaskDirective {
@@ -13,7 +13,7 @@ export class SsnMaskDirective {
   constructor(public model: NgControl) { }
 
   // modified from: https://stackoverflow.com/questions/37800841/mask-for-an-input-to-allow-phone-numbers
-  onInputChange(event: string, backspace: boolean) {
+  onInputChange(event: string) {
     // remove all mask characters (keep only numeric)
     console.log(event)
     var newVal = event.replace(/\D/g, '');
