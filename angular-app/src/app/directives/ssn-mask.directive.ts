@@ -15,14 +15,8 @@ export class SsnMaskDirective {
   // modified from: https://stackoverflow.com/questions/37800841/mask-for-an-input-to-allow-phone-numbers
   onInputChange(event: string, backspace: boolean) {
     // remove all mask characters (keep only numeric)
+    console.log(event)
     var newVal = event.replace(/\D/g, '');
-    // special handling of backspace necessary otherwise
-    // deleting of non-numeric characters is not recognized
-    // this laves room for improvement for example if you delete in the 
-    // middle of the string
-    if (backspace) {
-      newVal = newVal.substring(0, newVal.length - 1);
-    } 
 
     // don't show braces for empty value
     if (newVal.length == 0) {
