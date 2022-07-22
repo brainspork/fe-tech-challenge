@@ -8,3 +8,7 @@ li {
   justify-content: space-between;
   cursor: pointer;
 }
+
+li:hover {
+  background-color: #efefef;
+}
