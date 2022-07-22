@@ -12,3 +12,7 @@ li {
 li:hover {
   background-color: #efefef;
 }
+
+.page-count {
+  margin: 0 5px;
+}

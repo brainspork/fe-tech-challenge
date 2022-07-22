@@ -1,9 +1,12 @@
 <section>
   <button routerLink="/member/new">Add Member</button>
   <ul>
-    <li *ngFor="let member of members | async" [routerLink]="'/member/' + member.id">
+    <li *ngFor="let member of visibleMembers | async" [routerLink]="'/member/' + member.id">
       {{member.lastName}}, {{member.firstName}}
       <button (click)="deleteUser(member.id!)">Delete</button>
     </li>
   </ul>
+  <button (click)="prev()">Prev</button>
+  <span class="page-count">{{currentPage | async}} of {{numberOfPages}}</span>
+  <button (click)="next()">Next</button>
 </section>
