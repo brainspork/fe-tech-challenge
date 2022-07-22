@@ -1,0 +1,9 @@
+<section>
+  <button routerLink="/member/new">Add Member</button>
+  <ul>
+    <li *ngFor="let member of members | async" [routerLink]="'/member/' + member.id">
+      {{member.lastName}}, {{member.firstName}}
+      <button (click)="deleteUser(member.id!)">Delete</button>
+    </li>
+  </ul>
+</section>

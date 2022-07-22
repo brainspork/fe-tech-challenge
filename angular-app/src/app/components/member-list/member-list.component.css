@@ -1,0 +1,10 @@
+li {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #adadad;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}

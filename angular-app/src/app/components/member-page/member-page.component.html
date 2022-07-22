@@ -1,0 +1,30 @@
+<section>
+  <h3>{{member.value?.firstName}} {{member.value?.lastName}}</h3>
+  <div *ngIf="!isEditing">
+    <div class="info-section">
+      <div class="member-info">
+        <span class="info-title">Date of Birth:</span>
+        <span class="info-value">{{member.value?.dateOfBirth | date:'shortDate'}}</span>
+      </div>
+      <div class="member-info">
+        <span class="info-title">SSN:</span>
+        <span class="info-value" [ngClass]="{ 'blur': !ssnIsRevealed }">{{member.value?.ssn}}</span>
+        <button (click)="toggleSsnVisibility()">{{!ssnIsRevealed ? 'Reveal' : 'Hide'}}</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isEditing">
+    <fieldset>
+      <label>Date of Birth:</label>
+      <input type="date" [ngModel] ="newDateOfBirth | date:'yyyy-MM-dd'" (ngModelChange)="newDateOfBirth = $event" />
+    </fieldset>
+    <fieldset>
+      <label>SSN:</label>
+      <input type="text" [(ngModel)]="newSsn" maxlength="11" appSsnMask />
+    </fieldset>
+  </div>
+  <button *ngIf="!isEditing" (click)="beginEditing()">Edit</button>
+  <button *ngIf="isEditing" class="cancel-button" (click)="cancelEditing()">Cancel</button>
+  <button *ngIf="isEditing" (click)="updateUser()">Submit</button>
+  <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
+</section>

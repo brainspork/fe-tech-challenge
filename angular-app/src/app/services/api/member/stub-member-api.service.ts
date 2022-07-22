@@ -38,9 +38,11 @@ export class StubMemberApiService implements IMemberApiService {
      * @param member - The new member to enroll in our credit union
      * @returns The newly created member
      */
-    create(member: IMemberDto): Observable<IMemberDto> { 
+    create(member: IMemberDto): Observable<IMemberDto> {
+        const nextId = repository.map(x => x.member).sort((a, b) => b.id! - a.id!)[0].id!++;
+        console.log(nextId);
         repository.push({
-            member,
+            member: { ...member, id: nextId },
             preapprovals: []
         })
         

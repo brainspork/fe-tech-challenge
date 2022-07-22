@@ -1,0 +1,20 @@
+<section>
+  <fieldset>
+    <label>First Name:</label>
+    <input type="text" [(ngModel)]="firstName" />
+  </fieldset>
+  <fieldset>
+    <label>Last Name:</label>
+    <input type="text" [(ngModel)]="lastName" />
+  </fieldset>
+  <fieldset>
+    <label>Date of Birth:</label>
+    <input type="date" [(ngModel)]="dateOfBirth" />
+  </fieldset>
+  <fieldset>
+    <label>SSN:</label>
+    <input type="text" [(ngModel)]="ssn" maxlength="11" appSsnMask />
+  </fieldset>
+  <button (click)="createUser()">Create</button>
+  <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
+</section>

@@ -1,0 +1,29 @@
+.info-section {
+  padding: 5px;
+  border: 1px solid #adadad;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.member-info:not(:last-of-type) {
+  margin-bottom: 5px;
+}
+
+.info-title {
+  margin-right: 5px;
+  font-weight: 700;
+}
+
+.info-value {
+  margin-right: 5px;
+}
+
+.blur {
+  filter: blur(4px);
+}
+
+button {
+  margin-right: 5px;
+}
